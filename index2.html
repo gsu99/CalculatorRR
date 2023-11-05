@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #playButton {
+            background: chocolate;
+            padding: 20px 40px;
+            font-size: 20px;
+            border-radius: 8px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        #playButton:hover {
+            background: linear-gradient(85deg,, #);
+            transform: scale(1.05);
+        }
+
+        #myVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <button id="playButton">Go to Calculator</button>
+    <video id="myVideo" style="display: none">
+        <source src="rick.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const playButton = document.getElementById('playButton');
+        const video = document.getElementById('myVideo');
+
+        playButton.addEventListener('click', function() {
+            if (video.style.display === 'none') {
+                video.style.display = 'block';
+                video.play();
+                playButton.innerHTML = 'Get Rickrolled';
+            } else {
+                video.pause();
+                playButton.innerHTML = 'Go to Calculator';
+                playButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
